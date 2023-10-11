@@ -23,7 +23,7 @@ public class JobPostingController {
     public ResponseEntity<Void> createJobPosting(
         @RequestBody CreateJobPostingRequest createJobPostingRequest) {
         jobPostingService.createJobPosting(createJobPostingRequest);
-        return ResponseEntity.ok().build();
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping("/job-posting/{jobPostingId}")
