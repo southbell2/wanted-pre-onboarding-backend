@@ -2,20 +2,25 @@ package wanted.preonboarding.Job.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import wanted.preonboarding.Job.domain.Company;
 import wanted.preonboarding.Job.domain.JobPosting;
 import wanted.preonboarding.Job.exception.NoCompanyException;
+import wanted.preonboarding.Job.exception.NoJobPostingException;
 import wanted.preonboarding.Job.repository.CompanyRepository;
 import wanted.preonboarding.Job.repository.JobPostingRepository;
 import wanted.preonboarding.Job.vo.CreateJobPostingRequest;
+import wanted.preonboarding.Job.vo.UpdateJobPostingRequest;
 
 @Service
 @AllArgsConstructor
+@Transactional(readOnly = true)
 public class JobPostingService {
 
     private final JobPostingRepository jobPostingRepository;
     private final CompanyRepository companyRepository;
 
+    @Transactional
     public void createJobPosting(CreateJobPostingRequest postingRequest) {
         Company company = companyRepository.findById(postingRequest.getCompanyId())
             .orElseThrow(() -> new NoCompanyException("회사가 존재하지 않습니다."));
@@ -29,5 +34,14 @@ public class JobPostingService {
             .build();
 
         jobPostingRepository.save(jobPosting);
+    }
+
+    @Transactional
+    public void updateJobPosting(UpdateJobPostingRequest updateJobPostingRequest,
+        Long jobPostingId) {
+        JobPosting jobPosting = jobPostingRepository.findById(jobPostingId)
+            .orElseThrow(() -> new NoJobPostingException("채용공고가 존재하지 않습니다."));
+
+        jobPosting.updateJobPosting(updateJobPostingRequest);
     }
 }

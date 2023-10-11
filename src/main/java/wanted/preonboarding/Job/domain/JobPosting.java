@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import wanted.preonboarding.Job.vo.UpdateJobPostingRequest;
 
 @Entity
 @Table(name = "job_posting")
@@ -34,4 +35,10 @@ public class JobPosting {
     @JoinColumn(name = "company_id")
     private Company company;
 
+    public void updateJobPosting(UpdateJobPostingRequest updateJobPostingRequest) {
+        this.jobPosition = updateJobPostingRequest.getJobPosition();
+        this.compensation = updateJobPostingRequest.getCompensation();
+        this.techStack = updateJobPostingRequest.getTechStack();
+        this.jobDescription = updateJobPostingRequest.getJobDescription();
+    }
 }
