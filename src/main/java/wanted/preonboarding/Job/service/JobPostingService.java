@@ -44,4 +44,12 @@ public class JobPostingService {
 
         jobPosting.updateJobPosting(updateJobPostingRequest);
     }
+
+    @Transactional
+    public void deleteJobPosting(Long jobPostingId) {
+        JobPosting jobPosting = jobPostingRepository.findById(jobPostingId)
+            .orElseThrow(() -> new NoJobPostingException("채용공고가 존재하지 않습니다."));
+
+        jobPostingRepository.delete(jobPosting);
+    }
 }
