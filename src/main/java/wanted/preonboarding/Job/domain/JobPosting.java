@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import wanted.preonboarding.Job.vo.PagedJobPostingResponse;
 import wanted.preonboarding.Job.vo.UpdateJobPostingRequest;
 
 @Entity
@@ -36,9 +37,22 @@ public class JobPosting {
     private Company company;
 
     public void updateJobPosting(UpdateJobPostingRequest updateJobPostingRequest) {
-        this.jobPosition = updateJobPostingRequest.getJobPosition();
-        this.compensation = updateJobPostingRequest.getCompensation();
-        this.techStack = updateJobPostingRequest.getTechStack();
-        this.jobDescription = updateJobPostingRequest.getJobDescription();
+        jobPosition = updateJobPostingRequest.getJobPosition();
+        compensation = updateJobPostingRequest.getCompensation();
+        techStack = updateJobPostingRequest.getTechStack();
+        jobDescription = updateJobPostingRequest.getJobDescription();
+    }
+
+    public PagedJobPostingResponse toPagedJobPostingResponse() {
+        PagedJobPostingResponse pagedJobPostingResponse = new PagedJobPostingResponse();
+        pagedJobPostingResponse.setJobPosition(jobPosition);
+        pagedJobPostingResponse.setJobPostingId(id);
+        pagedJobPostingResponse.setCountry(company.getCountry());
+        pagedJobPostingResponse.setRegion(company.getRegion());
+        pagedJobPostingResponse.setCompanyName(company.getName());
+        pagedJobPostingResponse.setTechStack(techStack);
+        pagedJobPostingResponse.setCompensation(compensation);
+
+        return pagedJobPostingResponse;
     }
 }

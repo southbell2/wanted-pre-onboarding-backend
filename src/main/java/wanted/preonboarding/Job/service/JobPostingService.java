@@ -1,5 +1,6 @@
 package wanted.preonboarding.Job.service;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,6 +11,7 @@ import wanted.preonboarding.Job.exception.NoJobPostingException;
 import wanted.preonboarding.Job.repository.CompanyRepository;
 import wanted.preonboarding.Job.repository.JobPostingRepository;
 import wanted.preonboarding.Job.vo.CreateJobPostingRequest;
+import wanted.preonboarding.Job.vo.PagedJobPostingResponse;
 import wanted.preonboarding.Job.vo.UpdateJobPostingRequest;
 
 @Service
@@ -51,5 +53,12 @@ public class JobPostingService {
             .orElseThrow(() -> new NoJobPostingException("채용공고가 존재하지 않습니다."));
 
         jobPostingRepository.delete(jobPosting);
+    }
+
+    public List<PagedJobPostingResponse> showPagedJobPostings(int page) {
+        List<JobPosting> jobPostings = jobPostingRepository.findPagedJobPostings(5*(page-1), 5);
+        return jobPostings.stream()
+            .map(JobPosting::toPagedJobPostingResponse)
+            .toList();
     }
 }
