@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import wanted.preonboarding.Job.service.JobPostingService;
 import wanted.preonboarding.Job.vo.CreateJobPostingRequest;
+import wanted.preonboarding.Job.vo.DetailJobPostingResponse;
 import wanted.preonboarding.Job.vo.PagedJobPostingResponse;
 import wanted.preonboarding.Job.vo.UpdateJobPostingRequest;
 
@@ -58,5 +59,13 @@ public class JobPostingController {
         List<PagedJobPostingResponse> pagedJobPostingResponse = jobPostingService.showSearchJobPostings(
             keyword, page);
         return ResponseEntity.ok(pagedJobPostingResponse);
+    }
+
+    @GetMapping("/job-posting/{jobPostingId}")
+    public ResponseEntity<DetailJobPostingResponse> showDetailJobPosting(
+        @PathVariable Long jobPostingId) {
+        DetailJobPostingResponse detailJobPostingResponse = jobPostingService.showDetailJobPosting(
+            jobPostingId);
+        return ResponseEntity.ok(detailJobPostingResponse);
     }
 }

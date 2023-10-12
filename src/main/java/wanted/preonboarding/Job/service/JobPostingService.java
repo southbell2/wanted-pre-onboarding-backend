@@ -11,6 +11,7 @@ import wanted.preonboarding.Job.exception.NoJobPostingException;
 import wanted.preonboarding.Job.repository.CompanyRepository;
 import wanted.preonboarding.Job.repository.JobPostingRepository;
 import wanted.preonboarding.Job.vo.CreateJobPostingRequest;
+import wanted.preonboarding.Job.vo.DetailJobPostingResponse;
 import wanted.preonboarding.Job.vo.PagedJobPostingResponse;
 import wanted.preonboarding.Job.vo.UpdateJobPostingRequest;
 
@@ -68,5 +69,15 @@ public class JobPostingService {
         return jobPostings.stream()
             .map(JobPosting::toPagedJobPostingResponse)
             .toList();
+    }
+
+    public DetailJobPostingResponse showDetailJobPosting(Long jobPostingId) {
+        JobPosting jobPosting = jobPostingRepository.findByIdWithCompany(jobPostingId)
+            .orElseThrow(() -> new NoJobPostingException("채용공고가 존재하지 않습니다."));
+
+        List<Long> otherPostingId = jobPostingRepository.findOtherPostingId(
+            jobPosting.getCompany().getId(), jobPostingId);
+
+        return jobPosting.toDetailJobPostingResponse(otherPostingId);
     }
 }

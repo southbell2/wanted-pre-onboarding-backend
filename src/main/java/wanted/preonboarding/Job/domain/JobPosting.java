@@ -1,10 +1,12 @@
 package wanted.preonboarding.Job.domain;
 
 import jakarta.persistence.*;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import wanted.preonboarding.Job.vo.DetailJobPostingResponse;
 import wanted.preonboarding.Job.vo.PagedJobPostingResponse;
 import wanted.preonboarding.Job.vo.UpdateJobPostingRequest;
 
@@ -54,5 +56,20 @@ public class JobPosting {
         pagedJobPostingResponse.setCompensation(compensation);
 
         return pagedJobPostingResponse;
+    }
+
+    public DetailJobPostingResponse toDetailJobPostingResponse(List<Long> otherJobPostingId) {
+        DetailJobPostingResponse detailJobPostingResponse = new DetailJobPostingResponse();
+        detailJobPostingResponse.setJobDescription(jobDescription);
+        detailJobPostingResponse.setJobPosition(jobPosition);
+        detailJobPostingResponse.setCountry(company.getCountry());
+        detailJobPostingResponse.setRegion(company.getRegion());
+        detailJobPostingResponse.setJobPostingId(id);
+        detailJobPostingResponse.setCompensation(compensation);
+        detailJobPostingResponse.setCompanyName(company.getName());
+        detailJobPostingResponse.setTechStack(techStack);
+        detailJobPostingResponse.setOtherJobPostingId(otherJobPostingId);
+
+        return detailJobPostingResponse;
     }
 }
