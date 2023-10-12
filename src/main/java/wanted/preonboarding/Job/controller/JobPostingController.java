@@ -51,4 +51,12 @@ public class JobPostingController {
             page);
         return ResponseEntity.ok(pagedJobPostingResponse);
     }
+
+    @GetMapping("/job-posting/search")
+    public ResponseEntity<List<PagedJobPostingResponse>> showSearchJobPostings(
+        @RequestParam(defaultValue = "1") int page, @RequestParam String keyword) {
+        List<PagedJobPostingResponse> pagedJobPostingResponse = jobPostingService.showSearchJobPostings(
+            keyword, page);
+        return ResponseEntity.ok(pagedJobPostingResponse);
+    }
 }

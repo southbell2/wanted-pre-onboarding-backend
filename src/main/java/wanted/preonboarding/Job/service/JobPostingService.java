@@ -56,7 +56,15 @@ public class JobPostingService {
     }
 
     public List<PagedJobPostingResponse> showPagedJobPostings(int page) {
-        List<JobPosting> jobPostings = jobPostingRepository.findPagedJobPostings(5*(page-1), 5);
+        List<JobPosting> jobPostings = jobPostingRepository.findPagedJobPostings(5 * (page - 1), 5);
+        return jobPostings.stream()
+            .map(JobPosting::toPagedJobPostingResponse)
+            .toList();
+    }
+
+    public List<PagedJobPostingResponse> showSearchJobPostings(String keyword, int page) {
+        List<JobPosting> jobPostings = jobPostingRepository.findSearchJobPostings(keyword,
+            5 * (page - 1), 5);
         return jobPostings.stream()
             .map(JobPosting::toPagedJobPostingResponse)
             .toList();
