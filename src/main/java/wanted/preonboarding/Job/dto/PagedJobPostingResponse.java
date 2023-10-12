@@ -1,12 +1,11 @@
-package wanted.preonboarding.Job.vo;
+package wanted.preonboarding.Job.dto;
 
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class DetailJobPostingResponse {
+public class PagedJobPostingResponse {
 
     private Long jobPostingId;
     private String companyName;
@@ -15,6 +14,4 @@ public class DetailJobPostingResponse {
     private String jobPosition;
     private Integer compensation;
     private String techStack;
-    private String jobDescription;
-    private List<Long> otherJobPostingId;
 }

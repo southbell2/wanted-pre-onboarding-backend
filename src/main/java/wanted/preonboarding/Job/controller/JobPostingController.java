@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import wanted.preonboarding.Job.service.JobPostingService;
-import wanted.preonboarding.Job.vo.CreateJobPostingRequest;
-import wanted.preonboarding.Job.vo.DetailJobPostingResponse;
-import wanted.preonboarding.Job.vo.PagedJobPostingResponse;
-import wanted.preonboarding.Job.vo.UpdateJobPostingRequest;
+import wanted.preonboarding.Job.dto.CreateJobPostingRequest;
+import wanted.preonboarding.Job.dto.DetailJobPostingResponse;
+import wanted.preonboarding.Job.dto.PagedJobPostingResponse;
+import wanted.preonboarding.Job.dto.UpdateJobPostingRequest;
 
 @Controller
 @RequiredArgsConstructor

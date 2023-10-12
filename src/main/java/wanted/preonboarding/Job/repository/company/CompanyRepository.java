@@ -1,4 +1,4 @@
-package wanted.preonboarding.Job.repository;
+package wanted.preonboarding.Job.repository.company;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import wanted.preonboarding.Job.domain.Company;

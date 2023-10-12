@@ -1,4 +1,4 @@
-package wanted.preonboarding.Job.repository;
+package wanted.preonboarding.Job.repository.jobposting;
 
 import jakarta.persistence.EntityManager;
 import java.util.List;

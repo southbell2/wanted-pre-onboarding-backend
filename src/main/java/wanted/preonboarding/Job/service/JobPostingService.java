@@ -8,12 +8,12 @@ import wanted.preonboarding.Job.domain.Company;
 import wanted.preonboarding.Job.domain.JobPosting;
 import wanted.preonboarding.Job.exception.NoCompanyException;
 import wanted.preonboarding.Job.exception.NoJobPostingException;
-import wanted.preonboarding.Job.repository.CompanyRepository;
-import wanted.preonboarding.Job.repository.JobPostingRepository;
-import wanted.preonboarding.Job.vo.CreateJobPostingRequest;
-import wanted.preonboarding.Job.vo.DetailJobPostingResponse;
-import wanted.preonboarding.Job.vo.PagedJobPostingResponse;
-import wanted.preonboarding.Job.vo.UpdateJobPostingRequest;
+import wanted.preonboarding.Job.repository.company.CompanyRepository;
+import wanted.preonboarding.Job.repository.jobposting.JobPostingRepository;
+import wanted.preonboarding.Job.dto.CreateJobPostingRequest;
+import wanted.preonboarding.Job.dto.DetailJobPostingResponse;
+import wanted.preonboarding.Job.dto.PagedJobPostingResponse;
+import wanted.preonboarding.Job.dto.UpdateJobPostingRequest;
 
 @Service
 @AllArgsConstructor

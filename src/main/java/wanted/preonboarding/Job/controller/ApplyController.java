@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import wanted.preonboarding.Job.service.ApplyService;
-import wanted.preonboarding.Job.vo.ApplyRequest;
+import wanted.preonboarding.Job.dto.ApplyRequest;
 
 @Controller
 @RequiredArgsConstructor

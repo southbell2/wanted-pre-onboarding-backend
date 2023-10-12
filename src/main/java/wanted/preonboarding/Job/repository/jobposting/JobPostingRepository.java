@@ -1,4 +1,4 @@
-package wanted.preonboarding.Job.repository;
+package wanted.preonboarding.Job.repository.jobposting;
 
 import java.util.List;
 import java.util.Optional;

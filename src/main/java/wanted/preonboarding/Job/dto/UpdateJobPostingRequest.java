@@ -1,4 +1,4 @@
-package wanted.preonboarding.Job.vo;
+package wanted.preonboarding.Job.dto;
 
 import lombok.Getter;
 import lombok.Setter;

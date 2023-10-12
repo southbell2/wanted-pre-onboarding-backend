@@ -6,9 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import wanted.preonboarding.Job.vo.DetailJobPostingResponse;
-import wanted.preonboarding.Job.vo.PagedJobPostingResponse;
-import wanted.preonboarding.Job.vo.UpdateJobPostingRequest;
+import wanted.preonboarding.Job.dto.DetailJobPostingResponse;
+import wanted.preonboarding.Job.dto.PagedJobPostingResponse;
+import wanted.preonboarding.Job.dto.UpdateJobPostingRequest;
 
 @Entity
 @Table(name = "job_posting")

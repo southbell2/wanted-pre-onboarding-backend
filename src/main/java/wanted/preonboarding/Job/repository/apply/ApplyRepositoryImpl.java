@@ -1,4 +1,4 @@
-package wanted.preonboarding.Job.repository;
+package wanted.preonboarding.Job.repository.apply;
 
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;

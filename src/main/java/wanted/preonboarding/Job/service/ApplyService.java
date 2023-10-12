@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import wanted.preonboarding.Job.domain.JobApplication;
-import wanted.preonboarding.Job.repository.ApplyRepository;
+import wanted.preonboarding.Job.repository.apply.ApplyRepository;
 
 @Service
 @RequiredArgsConstructor

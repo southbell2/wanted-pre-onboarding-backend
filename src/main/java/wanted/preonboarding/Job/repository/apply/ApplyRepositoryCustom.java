@@ -1,4 +1,4 @@
-package wanted.preonboarding.Job.repository;
+package wanted.preonboarding.Job.repository.apply;
 
 import wanted.preonboarding.Job.domain.JobApplication;
 
