@@ -1,6 +1,10 @@
 wanted-pre-onboarding-backend
 =====================
 
+## 지원자 정보
+- 이름 : 이종남
+- 이메일 : southbell09@daum.net
+
 ## 기술 스택
 - Java 17
 - Spring Boot 3.1.4
