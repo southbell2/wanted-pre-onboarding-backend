@@ -48,7 +48,7 @@ wanted-pre-onboarding-backend
 #### 구현
 - /job-posting?page=1 와 같이 쿼리 파라미터로 page에 관한 데이터를 받습니다.
 - 가장 최신의 순서대로 채용공고를 5개씩 페이징해서 json 형식으로 반환합니다.
-- job_posting 테이블의 id는 auto-increment를 사용해서 만들기 때문에 id의 역순으로 정렬하면 최신 데이터부터 정렬할 수 있습니다.
+- job_posting 테이블의 id는 auto-increment를 사용해서 만들기 때문에 id의 내림차순으로 정렬하면 최신 데이터부터 정렬할 수 있습니다.
 - 이렇게 정렬된 데이터를 MySQL의 offset, limit을 이용하여 페이징합니다. (JPA의 EntityManager를 사용)
 
 ### 4-2. 채용공고 검색
@@ -59,7 +59,7 @@ wanted-pre-onboarding-backend
 - keyword로 검색 시 채용공고 상세 보기의 필드 중 한 곳이라도 keyword를 포함시 검색이 가능하게 합니다.
 - job_posting 테이블과 company 테이블을 join해서 job_posting 컬럼과 company 컬럼 중 하나라도 keyword가 포함 될 시 데이터를 읽어옵니다.
 - 검색어가 포함된 데이터를 최신 순서대로 5개씩 페이징해서 json 형식으로 반환합니다.
-- 최신 순서대로 정렬하기 위해서 job_posting의 id로 역순 정렬합니다.
+- 최신 순서대로 정렬하기 위해서 job_posting의 id로 내림차순 정렬합니다.
 - JPQL의 FETCH JOIN과 LIKE로 데이터를 조인해서 해당 검색어에 맞는 데이터를 읽어옵니다.
 
 ### 5. 채용 상세 페이지 가져오기
